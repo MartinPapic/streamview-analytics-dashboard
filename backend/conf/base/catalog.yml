@@ -1,4 +1,27 @@
-# Here you can define all your datasets by using simple YAML syntax.
-#
-# Documentation for this file format can be found in "The Data Catalog"
-# Link: https://docs.kedro.org/en/stable/catalog-data/introduction/#data-catalog
+raw_movies:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/netflix_movies_detailed_up_to_2025.csv
+
+raw_shows:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/netflix_tv_shows_detailed_up_to_2025.csv
+
+int_movies:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/int_movies.parquet
+
+int_shows:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/int_shows.parquet
+
+rep_growth_metrics:
+  type: pandas.JSONDataset
+  filepath: data/08_reporting/rep_growth_metrics.json
+
+rep_profitability_metrics:
+  type: pandas.JSONDataset
+  filepath: data/08_reporting/rep_profitability_metrics.json
+
+rep_top_content:
+  type: pandas.JSONDataset
+  filepath: data/08_reporting/rep_top_content.json
