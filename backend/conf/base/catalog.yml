@@ -14,9 +14,9 @@ int_shows:
   type: pandas.ParquetDataset
   filepath: data/02_intermediate/int_shows.parquet
 
-rep_growth_metrics:
+rep_yearly_performance:
   type: pandas.JSONDataset
-  filepath: data/08_reporting/rep_growth_metrics.json
+  filepath: data/08_reporting/rep_yearly_performance.json
 
 rep_profitability_metrics:
   type: pandas.JSONDataset
@@ -25,3 +25,15 @@ rep_profitability_metrics:
 rep_top_content:
   type: pandas.JSONDataset
   filepath: data/08_reporting/rep_top_content.json
+
+rep_audience_metrics:
+  type: pandas.JSONDataset
+  filepath: data/08_reporting/rep_audience_metrics.json
+
+rep_geo_profitability:
+  type: pandas.JSONDataset
+  filepath: data/08_reporting/rep_geo_profitability.json
+
+rep_director_metrics:
+  type: pandas.JSONDataset
+  filepath: data/08_reporting/rep_director_metrics.json
