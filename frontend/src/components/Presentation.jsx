@@ -147,19 +147,80 @@ const Presentation = ({ onClose }) => {
       </div>
     </div>,
 
-    // Slide 5: Conclusiones
-    <div className="flex flex-col justify-center h-full px-20 animate-fade-in">
-      <h2 className="text-5xl font-bold text-zinc-100 mb-12 flex items-center">
-        <span className="text-emerald-500 mr-4">05.</span> Conclusiones de Negocio
-      </h2>
-      <div className="space-y-6">
-        <div className="bg-zinc-900 p-6 rounded-xl border-l-4 border-emerald-500">
-          <h3 className="text-2xl font-bold text-zinc-200 mb-2">1. Fluctuación de Ingresos</h3>
-          <p className="text-zinc-400 text-lg">El análisis macro confirma que el volumen de catálogo no garantiza ingresos constantes. Las caídas interanuales de recaudación (alertadas preatentivamente en rojo) nos indican que la atención debe estar en la calidad y fidelización, no en inflar el catálogo a ciegas.</p>
+    // Slide 5: Conclusiones Estratégicas y Toma de Decisiones
+    <div className="flex flex-col justify-center h-full px-16 py-6 animate-fade-in">
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-4xl font-bold text-zinc-100 flex items-center">
+          <span className="text-emerald-500 mr-4">05.</span> Conclusiones y Recomendaciones
+        </h2>
+        <span className="text-xs text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-3 py-1.5 rounded-full font-medium">
+          Alineado a las 4 Metas del Encargo (EP1 / EP2)
+        </span>
+      </div>
+
+      <div className="grid grid-cols-2 gap-5">
+        {/* Pilar 1: Retención */}
+        <div className="bg-zinc-900/90 p-5 rounded-2xl border-l-4 border-emerald-500 border-t border-r border-b border-zinc-800/80 shadow-xl flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-lg font-bold text-zinc-100">1. Retención de Clientes</h3>
+              <span className="text-xs font-semibold px-2 py-0.5 rounded bg-zinc-800 text-emerald-400">Calidad vs. Volumen</span>
+            </div>
+            <p className="text-sm text-zinc-300 leading-relaxed mb-3">
+              <strong>Evidencia:</strong> Un catálogo plano de 16,000 títulos no evitó caídas interanuales en la recaudación (alertas rojas en crecimiento).
+            </p>
+          </div>
+          <p className="text-xs text-zinc-400 bg-zinc-950/60 p-2.5 rounded-xl border border-zinc-800/60">
+            💡 <strong>Decisión:</strong> Frenar la adquisición masiva de títulos de bajo impacto y redirigir presupuesto a estrenos insignia que sostengan la retención recurrente.
+          </p>
         </div>
-        <div className="bg-zinc-900 p-6 rounded-xl border-l-4 border-emerald-500">
-          <h3 className="text-2xl font-bold text-zinc-200 mb-2">2. Mitigación del Riesgo Financiero</h3>
-          <p className="text-zinc-400 text-lg">Al analizar la dispersión de riesgo, los grandes presupuestos son apuestas inseguras a menos que vayan atados al talento directivo comprobado (aislado en el dashboard).</p>
+
+        {/* Pilar 2: Engagement */}
+        <div className="bg-zinc-900/90 p-5 rounded-2xl border-l-4 border-blue-500 border-t border-r border-b border-zinc-800/80 shadow-xl flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-lg font-bold text-zinc-100">2. Nivel de Interacción (Engagement)</h3>
+              <span className="text-xs font-semibold px-2 py-0.5 rounded bg-zinc-800 text-blue-400">Formato Dominante</span>
+            </div>
+            <p className="text-sm text-zinc-300 leading-relaxed mb-3">
+              <strong>Evidencia:</strong> Las Series de TV registran los picos más estables de consumo y horas de reproducción frente a películas unitarias.
+            </p>
+          </div>
+          <p className="text-xs text-zinc-400 bg-zinc-950/60 p-2.5 rounded-xl border border-zinc-800/60">
+            💡 <strong>Decisión:</strong> Priorizar la producción de contenido episódico por temporadas para fidelizar y mantener a los usuarios conectados semana a semana.
+          </p>
+        </div>
+
+        {/* Pilar 3: Preferencias */}
+        <div className="bg-zinc-900/90 p-5 rounded-2xl border-l-4 border-amber-500 border-t border-r border-b border-zinc-800/80 shadow-xl flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-lg font-bold text-zinc-100">3. Preferencias de Consumo</h3>
+              <span className="text-xs font-semibold px-2 py-0.5 rounded bg-zinc-800 text-amber-400">Talento & Geografía</span>
+            </div>
+            <p className="text-sm text-zinc-300 leading-relaxed mb-3">
+              <strong>Evidencia:</strong> Fuerte correlación de ROI en directores probados (ej. Russo, Cameron) y geografías estratégicas identificadas en el mapa cobrizo.
+            </p>
+          </div>
+          <p className="text-xs text-zinc-400 bg-zinc-950/60 p-2.5 rounded-xl border border-zinc-800/60">
+            💡 <strong>Decisión:</strong> Concentrar las contrataciones en talentos con track-record comercial verificado y co-producciones en países de alta rentabilidad neta.
+          </p>
+        </div>
+
+        {/* Pilar 4: Experiencia y Riesgo */}
+        <div className="bg-zinc-900/90 p-5 rounded-2xl border-l-4 border-teal-500 border-t border-r border-b border-zinc-800/80 shadow-xl flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-lg font-bold text-zinc-100">4. Experiencia de Usuario & Riesgo</h3>
+              <span className="text-xs font-semibold px-2 py-0.5 rounded bg-zinc-800 text-teal-400">Satisfacción vs. Gasto</span>
+            </div>
+            <p className="text-sm text-zinc-300 leading-relaxed mb-3">
+              <strong>Evidencia:</strong> La dispersión revela que megapresupuestos no aseguran altas calificaciones ni rentabilidad (múltiples proyectos en riesgo rojo).
+            </p>
+          </div>
+          <p className="text-xs text-zinc-400 bg-zinc-950/60 p-2.5 rounded-xl border border-zinc-800/60">
+            💡 <strong>Decisión:</strong> Optimizar la asignación presupuestaria hacia producciones de rango medio con estándares de calidad que eleven el rating orgánico.
+          </p>
         </div>
       </div>
     </div>,

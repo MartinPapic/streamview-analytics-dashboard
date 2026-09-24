@@ -115,3 +115,6 @@ A continuación se detalla el historial de instrucciones (prompts) proporcionado
 
 **Prompt 38 (Declaración de Uso de IA en EDA):**
 > "agrega una concisa declaración de uso de IA (antigravity, modelos Gemini 3.8 Flash y Gemini 3.1 Pro) en el EDA (notebook) que declare que se usó IA a lo largo del desarrollo del proyecto y que se adjunta un registro de los prompts"
+
+**Prompt 39 (Alineación Integral de Conclusiones a los 4 Ejes de la Pauta):**
+> "revisa los pdf de pauta (son 2). dime, las conclusiones de la presentación engloban la totalidad de las cuestiones?"
