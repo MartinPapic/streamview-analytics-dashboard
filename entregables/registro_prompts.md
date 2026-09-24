@@ -109,3 +109,6 @@ A continuación se detalla el historial de instrucciones (prompts) proporcionado
 
 **Prompt 36 (Auditoría Final de Trazabilidad):**
 > "revisa que el informe esté acorde al dashboard, presentación y EDA (notebook)"
+
+**Prompt 37 (Incorporación de Simbología en Gráficos de Presentación y Dashboard):**
+> "en la presentación, falta la simbología de los gráficos"

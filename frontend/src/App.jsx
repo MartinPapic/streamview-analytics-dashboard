@@ -122,11 +122,12 @@ function App() {
 
               {/* Main Chart */}
               <div className="col-span-1 md:col-span-12 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl min-h-[400px]">
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
                   <h3 className="text-lg font-semibold text-zinc-100">Retención e Interacción (Engagement vs Recaudación)</h3>
-                  <div className="flex space-x-4">
-                    <span className="flex items-center text-xs text-zinc-400"><div className="w-3 h-3 rounded bg-emerald-500 mr-2"></div>Recaudación Avg</span>
-                    <span className="flex items-center text-xs text-zinc-400"><div className="w-3 h-3 rounded-full bg-blue-400 mr-2"></div>Popularidad</span>
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-400">
+                    <span className="flex items-center"><div className="w-3 h-3 rounded bg-emerald-500 mr-1.5"></div>Recaudación Avg</span>
+                    <span className="flex items-center"><div className="w-3 h-3 rounded bg-red-500 mr-1.5"></div>Caída Interanual (Alerta)</span>
+                    <span className="flex items-center"><div className="w-3 h-3 rounded-full bg-blue-400 mr-1.5"></div>Popularidad</span>
                   </div>
                 </div>
                 <div className="w-full h-[300px] bg-zinc-950/50 rounded-xl flex items-center justify-center border border-zinc-800/50">
@@ -137,8 +138,9 @@ function App() {
 
               {/* Geo Map */}
               <div className="col-span-1 md:col-span-12 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl min-h-[450px] flex flex-col">
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
                   <h3 className="text-lg font-semibold text-zinc-100">Distribución Geográfica de Rentabilidad (ROI %)</h3>
+                  <span className="flex items-center text-xs text-zinc-400"><div className="w-3 h-3 rounded bg-teal-500 mr-1.5"></div>Gradiente Teal: % Retorno de Inversión</span>
                 </div>
                 <div className="flex-1 w-full bg-zinc-950/50 rounded-xl border border-zinc-800/50 overflow-hidden">
                   <GeoChart />
@@ -152,9 +154,16 @@ function App() {
           {activeTab === 'rentabilidad' && (
             <div className="max-w-7xl mx-auto grid grid-cols-1 gap-6 h-full pb-10">
               <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl flex flex-col min-h-[500px]">
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-zinc-100">Experiencia de Usuario e Interacción (Riesgo vs Recompensa)</h3>
-                  <p className="text-sm text-zinc-400 mt-1">Análisis Gestalt (Agrupación/Proximidad): El presupuesto inicial (x) vs recaudación (y). Atributos preatentivos: Tamaño = Interacción (Popularidad), Color = Experiencia de Usuario (Rating).</p>
+                <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-zinc-100">Experiencia de Usuario e Interacción (Riesgo vs Recompensa)</h3>
+                    <p className="text-sm text-zinc-400 mt-1">Análisis Gestalt (Agrupación/Proximidad): Top 200 presupuestos (x) vs recaudación (y).</p>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-300 bg-zinc-950/60 px-3 py-2 rounded-xl border border-zinc-800 shrink-0">
+                    <span className="flex items-center"><div className="w-3 h-3 rounded-full bg-teal-500 mr-1.5"></div>ROI Positivo</span>
+                    <span className="flex items-center"><div className="w-3 h-3 rounded-full bg-red-500 mr-1.5"></div>ROI Negativo (Pérdida)</span>
+                    <span className="flex items-center"><div className="w-3.5 h-3.5 rounded-full border border-zinc-400 mr-1.5"></div>Tamaño = Popularidad</span>
+                  </div>
                 </div>
                 <div className="flex-1 w-full bg-zinc-950/50 rounded-xl border border-zinc-800/50">
                   <ProfitabilityChart />
@@ -162,10 +171,16 @@ function App() {
                 <p className="text-xs text-zinc-500 mt-4 text-center italic">Lectura: Top 200 presupuestos históricos. El rojo indica riesgo financiero (pérdida). El tamaño indica popularidad.</p>
               </div>
 
-              <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl flex flex-col min-h-[400px]">
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-zinc-100">Directores de Mayor Impacto Financiero</h3>
-                  <p className="text-sm text-zinc-400 mt-1">El color verde esmeralda destaca preatentivamente al talento Top.</p>
+              <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl flex flex-col min-h-[550px]">
+                <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-zinc-100">Directores de Mayor Impacto Financiero</h3>
+                    <p className="text-sm text-zinc-400 mt-1">El tono cobrizo aísla preatentivamente al talento Top según su retorno de inversión.</p>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-300 bg-zinc-950/60 px-3 py-2 rounded-xl border border-zinc-800 shrink-0">
+                    <span>Longitud: Recaudación Promedio</span>
+                    <span className="flex items-center"><div className="w-3 h-2 rounded bg-amber-600 mr-1.5"></div>Escala Cobriza: % ROI</span>
+                  </div>
                 </div>
                 <div className="flex-1 w-full bg-zinc-950/50 rounded-xl border border-zinc-800/50">
                   <DirectorChart />
@@ -185,12 +200,20 @@ function App() {
                   <p className="text-xs text-zinc-500 mt-4 text-center italic">Lectura: Los contenidos más exitosos según su calificación global.</p>
                 </div>
                 <div className="col-span-1 lg:col-span-8 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl flex flex-col min-h-[550px]">
-                   <h3 className="text-lg font-semibold text-zinc-100 mb-2">Preferencias de Consumo de Contenido (Top Géneros)</h3>
-                   <p className="text-sm text-zinc-400 mb-4">Popularidad promedio según la etiqueta de género (Base: Todos los contenidos).</p>
-                   <div className="flex-1 w-full bg-zinc-950/50 rounded-xl border border-zinc-800/50">
-                     <AudienceChart />
-                   </div>
-                   <p className="text-xs text-zinc-500 mt-4 text-center italic">Lectura: La longitud de la barra indica el engagement, mientras que el tono cobrizo advierte el volumen de títulos producidos.</p>
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                    <div>
+                      <h3 className="text-lg font-semibold text-zinc-100 mb-1">Preferencias de Consumo de Contenido (Top Géneros)</h3>
+                      <p className="text-sm text-zinc-400">Popularidad promedio según la etiqueta de género (Base: Todos los contenidos).</p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-300 bg-zinc-950/60 px-3 py-2 rounded-xl border border-zinc-800 shrink-0">
+                      <span>Longitud: Engagement</span>
+                      <span className="flex items-center"><div className="w-3 h-2 rounded bg-amber-600 mr-1.5"></div>Escala Cobriza: Nº Títulos</span>
+                    </div>
+                  </div>
+                  <div className="flex-1 w-full bg-zinc-950/50 rounded-xl border border-zinc-800/50">
+                    <AudienceChart />
+                  </div>
+                  <p className="text-xs text-zinc-500 mt-4 text-center italic">Lectura: La longitud de la barra indica el engagement, mientras que el tono cobrizo advierte el volumen de títulos producidos.</p>
                 </div>
               </div>
             </div>
@@ -203,7 +226,3 @@ function App() {
 }
 
 export default App;
-
-
-
-

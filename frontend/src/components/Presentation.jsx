@@ -47,8 +47,29 @@ const Presentation = ({ onClose }) => {
         <span className="text-emerald-500 mr-4">02.</span> Visión Ejecutiva: Retención y Engagement
       </h2>
       <div className="flex-1 w-full bg-zinc-900/80 rounded-2xl border border-zinc-700 p-6 shadow-2xl relative flex flex-col">
+        {/* Barra de Simbología */}
+        <div className="flex flex-wrap items-center justify-between gap-4 px-4 py-2.5 bg-zinc-950/70 rounded-xl border border-zinc-800 mb-3 text-xs">
+          <span className="font-semibold text-zinc-300 uppercase tracking-wider flex items-center">
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-2"></span>
+            Simbología:
+          </span>
+          <div className="flex flex-wrap items-center gap-5 text-zinc-300">
+            <span className="flex items-center">
+              <span className="w-3.5 h-3.5 rounded-sm bg-emerald-500 mr-2 inline-block shadow-sm"></span>
+              <span><strong>Barra Verde:</strong> Recaudación Creciente / Estable</span>
+            </span>
+            <span className="flex items-center">
+              <span className="w-3.5 h-3.5 rounded-sm bg-red-500 mr-2 inline-block shadow-sm"></span>
+              <span><strong>Barra Roja:</strong> Caída Interanual (Alerta Preatentiva)</span>
+            </span>
+            <span className="flex items-center">
+              <span className="w-5 h-1 rounded bg-blue-400 mr-2 inline-block"></span>
+              <span><strong>Línea Azul:</strong> Popularidad / Engagement (Eje der.)</span>
+            </span>
+          </div>
+        </div>
         <div className="flex-1 relative"><GrowthChart /></div>
-        <p className="text-sm text-emerald-400 mt-6 text-center italic px-12">
+        <p className="text-sm text-emerald-400 mt-4 text-center italic px-12">
           <strong>Historia de Usuario 01 (Gerencia):</strong> Evaluar el estado macro de la plataforma. Utilizamos el <strong>rojo como atributo preatentivo</strong> exclusivamente para señalar años con caída en la recaudación, alertando al ejecutivo sobre la pérdida de retención sin obligarlo a analizar ejes.
         </p>
       </div>
@@ -60,26 +81,68 @@ const Presentation = ({ onClose }) => {
         <span className="text-emerald-500 mr-4">03.</span> Evaluación de Riesgos Financieros
       </h2>
       <div className="flex-1 w-full bg-zinc-900/80 rounded-2xl border border-zinc-700 p-6 shadow-2xl relative flex flex-col">
+        {/* Barra de Simbología */}
+        <div className="flex flex-wrap items-center justify-between gap-4 px-4 py-2.5 bg-zinc-950/70 rounded-xl border border-zinc-800 mb-3 text-xs">
+          <span className="font-semibold text-zinc-300 uppercase tracking-wider flex items-center">
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-2"></span>
+            Simbología (Top 200 Presupuestos):
+          </span>
+          <div className="flex flex-wrap items-center gap-5 text-zinc-300">
+            <span className="flex items-center">
+              <span className="w-3.5 h-3.5 rounded-full bg-teal-500 mr-2 inline-block shadow-sm"></span>
+              <span><strong>Turquesa:</strong> ROI Positivo (Ganancia)</span>
+            </span>
+            <span className="flex items-center">
+              <span className="w-3.5 h-3.5 rounded-full bg-red-500 mr-2 inline-block shadow-sm"></span>
+              <span><strong>Rojo:</strong> ROI Negativo (Pérdida / Riesgo)</span>
+            </span>
+            <span className="flex items-center">
+              <span className="w-4 h-4 rounded-full border-2 border-zinc-300 mr-2 inline-block"></span>
+              <span><strong>Tamaño:</strong> Nivel de Popularidad</span>
+            </span>
+            <span className="text-zinc-400 italic">Ejes: Presupuesto ($) vs Recaudación ($)</span>
+          </div>
+        </div>
         <div className="flex-1 relative"><ProfitabilityChart /></div>
-        <p className="text-sm text-emerald-400 mt-6 text-center italic px-12">
+        <p className="text-sm text-emerald-400 mt-4 text-center italic px-12">
           <strong>Minimizando la Carga Cognitiva:</strong> Redujimos la muestra al Top 200 de presupuestos para evitar manchas visuales (Gestalt: Continuidad). El color rojo alerta preatentivamente sobre películas que generaron <strong>pérdidas (ROI negativo)</strong>.
         </p>
       </div>
     </div>,
 
-    // Slide 4: Directores (HU-02)
+    // Slide 4: Directores y Geografía (HU-02)
     <div className="flex flex-col h-full px-12 py-8 animate-fade-in">
       <h2 className="text-4xl font-bold text-zinc-100 mb-6 flex items-center">
         <span className="text-emerald-500 mr-4">04.</span> Preferencias y Fiabilidad Creativa
       </h2>
       <div className="flex-1 grid grid-cols-12 gap-8">
         <div className="col-span-5 bg-zinc-900/80 rounded-2xl border border-zinc-700 p-6 shadow-2xl relative flex flex-col">
-           <div className="flex-1 relative"><GeoChart /></div>
-           <p className="text-xs text-zinc-400 mt-4 text-center">Gestalt (Similitud): El mapa usa una escala monocromática suave para indicar dónde se concentran los retornos geográficos.</p>
+          <div className="flex items-center justify-between px-3 py-2 bg-zinc-950/70 rounded-xl border border-zinc-800 mb-3 text-xs">
+            <span className="font-semibold text-zinc-300">Mapa Global de ROI</span>
+            <span className="flex items-center text-zinc-300">
+              <span className="w-3 h-3 rounded bg-teal-500 mr-1.5 inline-block"></span>
+              Escala Teal = % ROI Neto
+            </span>
+          </div>
+          <div className="flex-1 relative"><GeoChart /></div>
+          <p className="text-xs text-zinc-400 mt-4 text-center">Gestalt (Similitud): El mapa usa una escala monocromática suave para indicar dónde se concentran los retornos geográficos.</p>
         </div>
         <div className="col-span-7 bg-zinc-900/80 rounded-2xl border border-zinc-700 p-6 shadow-2xl relative flex flex-col">
-           <div className="flex-1 relative"><DirectorChart /></div>
-           <p className="text-xs text-zinc-400 mt-4 text-center"><strong>Historia de Usuario 02 (Análisis):</strong> usamos una escala térmica cobriza (sin tonos rojos de alerta) para priorizar preatentivamente qué talentos deben ser retenidos.</p>
+          <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 bg-zinc-950/70 rounded-xl border border-zinc-800 mb-3 text-xs">
+            <span className="font-semibold text-zinc-300">Directores de Mayor Impacto</span>
+            <div className="flex items-center gap-3 text-zinc-300">
+              <span className="flex items-center">
+                <span className="w-3 h-2 rounded-sm bg-zinc-500 mr-1.5 inline-block"></span>
+                <span>Longitud: Recaudación (USD)</span>
+              </span>
+              <span className="flex items-center">
+                <span className="w-3 h-2 rounded-sm bg-amber-600 mr-1.5 inline-block"></span>
+                <span>Escala Cobriza: % ROI</span>
+              </span>
+            </div>
+          </div>
+          <div className="flex-1 relative"><DirectorChart /></div>
+          <p className="text-xs text-zinc-400 mt-4 text-center"><strong>Historia de Usuario 02 (Análisis):</strong> usamos una escala térmica cobriza (sin tonos rojos de alerta) para priorizar preatentivamente qué talentos deben ser retenidos.</p>
         </div>
       </div>
     </div>,
@@ -167,5 +230,3 @@ const Presentation = ({ onClose }) => {
 };
 
 export default Presentation;
-
-
