@@ -118,3 +118,6 @@ A continuación se detalla el historial de instrucciones (prompts) proporcionado
 
 **Prompt 39 (Alineación Integral de Conclusiones a los 4 Ejes de la Pauta):**
 > "revisa los pdf de pauta (son 2). dime, las conclusiones de la presentación engloban la totalidad de las cuestiones?"
+
+**Prompt 40 (Respaldo de Evidencias Visuales - Capturas de Pantalla):**
+> "haz un add, commit y push, subí unas capturas"
