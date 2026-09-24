@@ -15,6 +15,14 @@ const DirectorChart = () => {
       const revenues = sorted.map(d => d.avg_revenue);
       const rois = sorted.map(d => d.roi * 100);
 
+      // Escala cobriza con mucho blanco, sin llegar a rojo
+      const copperScale = [
+        [0, '#fafaf9'],   // Blanco/Gris muy tenue
+        [0.3, '#fde68a'], // Amarillo suave
+        [0.6, '#f59e0b'], // Ambar/Cobrizo medio
+        [1, '#92400e']    // Cobrizo oscuro (no rojo)
+      ];
+
       setData([
         {
           y: directors,
@@ -23,16 +31,19 @@ const DirectorChart = () => {
           orientation: 'h',
           marker: {
             color: rois,
-            colorscale: 'Reds', // Red scale for ROI
+            colorscale: copperScale,
+            showscale: true,
             colorbar: {
-                title: 'ROI (%)',
-                thickness: 10,
-                tickfont: { color: '#94a3b8' },
-                outlinewidth: 0
-            }
+              title: { text: 'ROI (%)', font: { color: '#a1a1aa' } },
+              tickfont: { color: '#a1a1aa' },
+              thickness: 15,
+              outlinewidth: 0
+            },
+            line: { color: '#3f3f46', width: 0.5 }
           },
           text: rois.map(roi => `ROI: ${roi.toFixed(0)}%`),
-          textposition: 'auto',
+          textposition: 'outside',
+          textfont: { color: '#d4d4d8', size: 13 },
           hoverinfo: 'y+x+text'
         }
       ]);
@@ -43,7 +54,7 @@ const DirectorChart = () => {
   if (loading) {
     return (
       <div className="flex h-full w-full items-center justify-center">
-        <p className="text-slate-500 animate-pulse font-medium">Cargando directores top...</p>
+        <p className="text-zinc-500 animate-pulse font-medium">Cargando directores top...</p>
       </div>
     );
   }
@@ -56,12 +67,13 @@ const DirectorChart = () => {
           autosize: true,
           paper_bgcolor: 'rgba(0,0,0,0)',
           plot_bgcolor: 'rgba(0,0,0,0)',
-          font: { color: '#94a3b8', family: 'ui-sans-serif, system-ui, sans-serif' },
-          margin: { t: 20, r: 80, l: 150, b: 40 },
+          font: { color: '#a1a1aa', family: 'ui-sans-serif, system-ui, sans-serif' },
+          margin: { t: 20, r: 100, l: 150, b: 40 },
+          bargap: 0.15,
           xaxis: { 
             title: 'Recaudación Promedio Mundial (USD)',
-            gridcolor: '#1e293b', 
-            zerolinecolor: '#334155',
+            gridcolor: '#27272a', 
+            zerolinecolor: '#3f3f46',
             tickformat: '.2s'
           },
           yaxis: { 

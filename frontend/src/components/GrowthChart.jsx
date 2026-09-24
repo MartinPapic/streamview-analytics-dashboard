@@ -8,14 +8,11 @@ const GrowthChart = () => {
 
   useEffect(() => {
     fetchGrowthMetrics().then((jsonData) => {
-      // Filtrar años inválidos o muy antiguos para mejor visualización
-      const filteredData = jsonData.filter(d => d.year_added >= 2010 && d.year_added <= 2025);
+      const filteredData = jsonData.filter(d => d.year_added >= 2015);
       
       const years = filteredData.map(d => d.year_added);
-      const avgRevenue = filteredData.map(d => d.avg_revenue);
-      const revenues = avgRevenue;
+      const revenues = filteredData.map(d => d.avg_revenue);
       const moviesPop = filteredData.map(d => d.movies_popularity);
-      const showsPop = filteredData.map(d => d.shows_popularity || d.movies_popularity);
 
       setData([
         {
@@ -23,7 +20,10 @@ const GrowthChart = () => {
           y: revenues,
           type: 'bar',
           name: 'Recaudación Avg',
-          marker: { color: '#ef4444', opacity: 0.8 },
+                    marker: { 
+            color: revenues.map((rev, i) => (i > 0 && rev < revenues[i-1]) ? '#ef4444' : '#10b981'), 
+            opacity: 0.8 
+          },
           hoverinfo: 'x+y'
         },
         {
@@ -31,21 +31,10 @@ const GrowthChart = () => {
           y: moviesPop,
           type: 'scatter',
           mode: 'lines+markers',
-          name: 'Pop. Películas',
+          name: 'Popularidad',
           yaxis: 'y2',
-          line: { color: '#cbd5e1', width: 3, shape: 'spline' },
-          marker: { size: 6, color: '#f8fafc' },
-          hoverinfo: 'x+y'
-        },
-        {
-          x: years,
-          y: showsPop,
-          type: 'scatter',
-          mode: 'lines+markers',
-          name: 'Pop. Series',
-          yaxis: 'y2',
-          line: { color: '#64748b', width: 2, dash: 'dot', shape: 'spline' },
-          marker: { size: 5, color: '#94a3b8' },
+          line: { color: '#60a5fa', width: 3, shape: 'spline' }, // Blue
+          marker: { size: 6, color: '#93c5fd' },
           hoverinfo: 'x+y'
         }
       ]);
@@ -56,7 +45,7 @@ const GrowthChart = () => {
   if (loading) {
     return (
       <div className="flex h-full w-full items-center justify-center">
-        <p className="text-slate-500 animate-pulse font-medium">Cargando métricas...</p>
+        <p className="text-zinc-500 animate-pulse font-medium">Cargando métricas de rendimiento...</p>
       </div>
     );
   }
@@ -69,18 +58,18 @@ const GrowthChart = () => {
           autosize: true,
           paper_bgcolor: 'rgba(0,0,0,0)',
           plot_bgcolor: 'rgba(0,0,0,0)',
-          font: { color: '#94a3b8', family: 'ui-sans-serif, system-ui, sans-serif' },
-          margin: { t: 10, r: 60, l: 60, b: 30 },
+          font: { color: '#a1a1aa', family: 'ui-sans-serif, system-ui, sans-serif' },
+          margin: { t: 20, r: 50, l: 60, b: 40 },
           xaxis: { 
-            gridcolor: '#1e293b', 
-            zerolinecolor: '#1e293b',
+            gridcolor: '#27272a', 
+            zerolinecolor: '#3f3f46',
             tickmode: 'linear',
-            dtick: 2
+            dtick: 1
           },
           yaxis: { 
-            title: 'Recaudación USD',
-            gridcolor: '#1e293b', 
-            zerolinecolor: '#1e293b',
+            title: 'Recaudación (USD)',
+            gridcolor: '#27272a', 
+            zerolinecolor: '#3f3f46',
             tickformat: '.2s'
           },
           yaxis2: {
@@ -89,6 +78,7 @@ const GrowthChart = () => {
             side: 'right',
             gridcolor: 'transparent',
             zerolinecolor: 'transparent',
+            showgrid: false
           },
           showlegend: false,
           hovermode: 'x unified'
@@ -102,3 +92,4 @@ const GrowthChart = () => {
 };
 
 export default GrowthChart;
+

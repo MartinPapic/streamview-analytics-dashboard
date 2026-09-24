@@ -17,34 +17,29 @@ const ProfitabilityChart = () => {
                 budget: jsonData.budget[k],
                 revenue: jsonData.revenue[k],
                 roi: jsonData.roi[k],
-                vote_average: jsonData.vote_average[k]
+                vote_average: jsonData.vote_average[k],
+                popularity: jsonData.popularity[k]
             }));
         }
 
-        // Filtramos para evitar un colapso en el navegador con 16k puntos
-        // Tomamos el top 1000 de películas con mayor presupuesto para ver el riesgo vs recompensa
-        const sample = parsed.sort((a,b) => b.budget - a.budget).slice(0, 1000);
+        const sample = parsed.sort((a,b) => b.budget - a.budget).slice(0, 200);
+        
+        // Atributo preatentivo: Tamao por nivel de interaccin (popularidad)
+        const maxPop = Math.max(...sample.map(d => d.popularity));
+        const minPop = Math.min(...sample.map(d => d.popularity));
 
         setData([{
           x: sample.map(d => d.budget),
           y: sample.map(d => d.revenue),
-          text: sample.map(d => `<b>${d.title}</b><br>ROI: ${(d.roi * 100).toFixed(0)}%<br>Rating: ${d.vote_average.toFixed(1)}`),
+          text: sample.map(d => "<b>" + d.title + "</b><br>Interacción (Pop): " + d.popularity.toFixed(0) + "<br>Rentabilidad (Color): " + d.vote_average.toFixed(1)),
           hoverinfo: 'text',
           mode: 'markers',
           type: 'scattergl',
           marker: {
-            size: sample.map(d => Math.max(5, d.vote_average * 1.5)), // El tamaño de la burbuja refleja el rating
-            color: sample.map(d => d.roi), // El color refleja el ROI
-            colorscale: 'Portland',
-            showscale: true,
-            colorbar: {
-                title: { text: 'ROI', font: { color: '#94a3b8' } },
-                tickfont: { color: '#94a3b8' },
-                thickness: 10,
-                outlinewidth: 0
-            },
-            opacity: 0.7,
-            line: { width: 0.5, color: '#0f172a' }
+            size: sample.map(d => 6 + ((d.popularity - minPop) / (maxPop - minPop)) * 14), 
+            color: sample.map(d => d.roi < 0 ? '#ef4444' : '#14b8a6'), showscale: false,
+            opacity: 0.65,
+            line: { width: 0.5, color: '#18181b' }
           }
         }]);
         setLoading(false);
@@ -54,7 +49,7 @@ const ProfitabilityChart = () => {
   if (loading) {
     return (
       <div className="flex h-full w-full items-center justify-center">
-        <p className="text-slate-500 animate-pulse font-medium">Calculando matrices de rentabilidad...</p>
+        <p className="text-zinc-500 animate-pulse font-medium">Calculando matrices de interaccin...</p>
       </div>
     );
   }
@@ -67,18 +62,18 @@ const ProfitabilityChart = () => {
           autosize: true,
           paper_bgcolor: 'rgba(0,0,0,0)',
           plot_bgcolor: 'rgba(0,0,0,0)',
-          font: { color: '#94a3b8', family: 'ui-sans-serif, system-ui, sans-serif' },
+          font: { color: '#a1a1aa', family: 'ui-sans-serif, system-ui, sans-serif' },
           margin: { t: 10, r: 10, l: 60, b: 50 },
           xaxis: { 
               title: 'Presupuesto (USD)', 
-              gridcolor: '#1e293b', 
-              zerolinecolor: '#334155',
+              gridcolor: '#27272a', 
+              zerolinecolor: '#3f3f46',
               tickprefix: '$',
           },
           yaxis: { 
-              title: 'Recaudación (USD)', 
-              gridcolor: '#1e293b', 
-              zerolinecolor: '#334155',
+              title: 'Recaudacin (USD)', 
+              gridcolor: '#27272a', 
+              zerolinecolor: '#3f3f46',
               tickprefix: '$',
           },
           hovermode: 'closest'
@@ -92,3 +87,5 @@ const ProfitabilityChart = () => {
 };
 
 export default ProfitabilityChart;
+
+

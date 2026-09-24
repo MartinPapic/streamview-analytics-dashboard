@@ -79,3 +79,33 @@ A continuación se detalla el historial de instrucciones (prompts) proporcionado
 
 **Prompt 26 (Organización del repositorio y README):**
 > "el registro de prompts está actualizado? si es así, guíame sobre como subir el repo a github..."
+
+**Prompt 27 (Atributos Preatentivos y Alineación a Negocio):**
+> "colores más sobrios, menos alto contraste... atributos preatentivos (color en barras, tamaño en dispersión)... comunicar la intención con atributos preatentivos y Gestalt con el fin de comprender el comportamiento de sus usuarios y fortalecer la toma de decisiones relacionadas con: Retención, Interacción, Preferencias, Experiencia..."
+
+**Prompt 28 (Paleta Verde/Azul y Rojo como Peligro Preatentivo):**
+> "cambia la configuración de colores por una con menos contraste, menos rojo (parece mucho riesgo), prefiere tonos verdes y azules. rojo sólo como atributo preatentivo clave. Además, en el gráfico de barras elimina la linea punteada, deja solo la solida y las barras."
+
+**Prompt 29 (Historias de Usuario, Leyendas y Carga Visual en Dispersión):**
+> "en la sección de ROI, el gráfico de dispersión es muy confuso, es posible disminuir la muestra para mejorar la visualización? Además, sitúa leyendas explicativas bajo caada gráfico. Sobre esto, en la presentación del dashboard, las leyendas deben estar relacionadas con las historias de usuario en un storytelling atractivo y efectivo."
+
+**Prompt 30 (Bugfix Sintaxis):**
+> "el proyecto muestra un error: plugin:vite:oxc Transform failed... no se inicia la página."
+
+**Prompt 31 (Bugfix Parsing):**
+> "el proyecto muestra un error: plugin:vite:oxc... Expected } but found Identifier... no se inicia la página."
+
+**Prompt 32 (Ajuste de Color Coding Cobrizo y Tamaños de Barras):**
+> "en el gráfico de la presentación, en el punto 4, y en el dashboard... incluye color coding para el ROI por director. Además, se ve muy pequeño (la leyenda del roi no se alcanza a leer, quisiera que lo expandieras verticalmente, las barras). También quiero color coding para el gráfico de preferencia de consumo de contenido. Ambos los quiero en tonos cobrizos, pero con mucho blanco, ninguno quiero que llegue a rojo."
+
+**Prompt 33 (Ajuste de Grilla Horizontal - Dominancia):**
+> "en la pestaña audiencia top, quiero que el gráfico de la derecha sea predominante al ocupar el espacio horizontal."
+
+**Prompt 34 (Mapeo de Atributo de Color a Volumen):**
+> "ese mismo gráfico que agrandaste, quiero que el color coding vaya de acuerdo al número de títulos por género"
+
+**Prompt 35 (Corrección de Storytelling - Métricas Inexistentes):**
+> "En las conclusiones, mencionas métricas de abandono en rojo, no existen. A cuáles te refieres? conversemos"
+
+**Prompt 36 (Auditoría Final de Trazabilidad):**
+> "revisa que el informe esté acorde al dashboard, presentación y EDA (notebook)"

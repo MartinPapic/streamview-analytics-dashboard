@@ -20,11 +20,11 @@ const GeoChart = () => {
           z: rois,
           text: texts,
           hoverinfo: 'text',
-          colorscale: 'Reds',
+          colorscale: 'Teal',
           autocolorscale: false,
           colorbar: {
-            title: { text: 'ROI (%)', font: { color: '#94a3b8' } },
-            tickfont: { color: '#94a3b8' },
+            title: { text: 'ROI (%)', font: { color: '#a1a1aa' } },
+            tickfont: { color: '#a1a1aa' },
             thickness: 10,
             outlinewidth: 0
           },
@@ -43,7 +43,7 @@ const GeoChart = () => {
   if (loading) {
     return (
       <div className="flex h-full w-full items-center justify-center">
-        <p className="text-slate-500 animate-pulse font-medium">Cargando mapa global...</p>
+        <p className="text-zinc-500 animate-pulse font-medium">Cargando mapa global...</p>
       </div>
     );
   }
@@ -56,16 +56,16 @@ const GeoChart = () => {
           autosize: true,
           paper_bgcolor: 'rgba(0,0,0,0)',
           plot_bgcolor: 'rgba(0,0,0,0)',
-          font: { color: '#94a3b8', family: 'ui-sans-serif, system-ui, sans-serif' },
+          font: { color: '#a1a1aa', family: 'ui-sans-serif, system-ui, sans-serif' },
           margin: { t: 0, r: 0, l: 0, b: 0 },
           geo: {
             showframe: false,
             showcoastlines: true,
-            coastlinecolor: '#1e293b',
+            coastlinecolor: '#27272a',
             projection: { type: 'equirectangular' },
             bgcolor: 'rgba(0,0,0,0)',
             showland: true,
-            landcolor: '#1e293b',
+            landcolor: '#27272a',
             showocean: true,
             oceancolor: 'rgba(0,0,0,0)',
             showlakes: false
@@ -81,3 +81,5 @@ const GeoChart = () => {
 };
 
 export default GeoChart;
+
+
