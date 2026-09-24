@@ -112,3 +112,6 @@ A continuación se detalla el historial de instrucciones (prompts) proporcionado
 
 **Prompt 37 (Incorporación de Simbología en Gráficos de Presentación y Dashboard):**
 > "en la presentación, falta la simbología de los gráficos"
+
+**Prompt 38 (Declaración de Uso de IA en EDA):**
+> "agrega una concisa declaración de uso de IA (antigravity, modelos Gemini 3.8 Flash y Gemini 3.1 Pro) en el EDA (notebook) que declare que se usó IA a lo largo del desarrollo del proyecto y que se adjunta un registro de los prompts"
